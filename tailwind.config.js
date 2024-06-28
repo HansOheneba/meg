@@ -14,3 +14,5 @@ module.exports = {
   plugins: [],
 }
 
+
+dev = 'npx tailwindcss -i ./tailwind.css -o ./output.css --watch';
