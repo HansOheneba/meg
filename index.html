@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Trad:wght@100..400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
 </head>
 <body style="font-family: 'Playwrite US Trad', cursive;" class="bg-[#4E148C] p-5">
     
@@ -26,15 +27,56 @@
       </div>
   </nav>
   <div class="flex justify-center">
-    <p class="text-2xl text-[#F9B5AC] font-semibold mt-6">Meg & Hans</p>
+    <p class="text-2xl text-[#F9B5AC] font-semibold mt-6">Happy 2 Months🍾</p>
   </div>
   <div class="flex items-center justify-center min-h-[70vh] p-10">
     
     <div class="text-center p-6 md:p-12 bg-[#613DC1] rounded-lg shadow-lg max-w-lg w-full">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#F9B5AC] leading-10">I Love You <br><br> Meg❤️</h1> <br>
         <p class="text-lg sm:text-xl md:text-2xl text-[#8AE9C1] mt-4">You mean the world to me.</p>
-        <p class="text-base sm:text-lg md:text-xl text-[#A0EEC0] mt-2">I appreciate you so much, I never thought I would ever get to be with such an am amazing person, I keep prayiong every day that I do not mess this up, it means so much to me to be able to be with you, thank you for bettering my life.</p>
+        <p class="text-base sm:text-lg md:text-xl text-[#A0EEC0] mt-2">It's been 2 months already, wow, time flies by so fast.  Although I am not there physically to so we can celebrate, I just wanted to let you know that I really love you, and appreciate you and I am so glad I can call you my girl, <br><br> <strong>Here's to more months to make memories.</strong> </p>
     </div>
   </div>
+  <script>
+    const duration = 10 * 1000; // 15 seconds
+    const animationEnd = Date.now() + duration;
+    const defaults = {
+      startVelocity: 30,
+      spread: 360,
+      ticks: 60,
+      zIndex: 100,
+      shapes: ["heart"],
+      colors: ["#FFC0CB", "#8AE9C1", "#FF1493", "#8AE9C1"],
+      scalar: 2
+    };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(function() {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+
+      // since particles fall down, start a bit higher than random
+      confetti(
+        Object.assign({}, defaults, {
+          particleCount,
+          origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+        })
+      );
+      confetti(
+        Object.assign({}, defaults, {
+          particleCount,
+          origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+        })
+      );
+    }, 250);
+  </script>
 </body>
 </html>
